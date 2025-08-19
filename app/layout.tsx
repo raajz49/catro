@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       "Connect with strangers around the world through random video chat. Start meaningful conversations with ChatSpark.",
     type: "website",
-    images: ["https://lovable.dev/opengraph-image-p98pqg.png"],
+    images: ["https://shapes.inc/api/public/avatar/johnnysins-rvhd"],
   },
   twitter: {
     card: "summary_large_image",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "ChatSpark - Random Video Chat",
     description:
       "Connect with strangers around the world through random video chat",
-    images: ["https://lovable.dev/opengraph-image-p98pqg.png"],
+    images: ["https://shapes.inc/api/public/avatar/johnnysins-rvhd"],
   },
 };
 
