@@ -1,103 +1,209 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Video, VideoOff, Phone, SkipForward, Users } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [isCallActive, setIsCallActive] = useState(false);
+  const [isConnecting, setIsConnecting] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const handleStartCall = () => {
+    setIsConnecting(true);
+    console.log("Starting video call...");
+
+    // Simulate connection delay
+    setTimeout(() => {
+      setIsConnecting(false);
+      setIsCallActive(true);
+      console.log("Connected to stranger!");
+    }, 2000);
+  };
+
+  const handleEndCall = () => {
+    console.log("Ending call...");
+    setIsCallActive(false);
+  };
+
+  const handleSkipCall = () => {
+    console.log("Skipping to next call...");
+    setIsConnecting(true);
+
+    // Simulate finding new connection
+    setTimeout(() => {
+      setIsConnecting(false);
+      console.log("Connected to new stranger!");
+    }, 1500);
+  };
+
+  if (!isCallActive && !isConnecting) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+        <div className="text-center max-w-md mx-auto fade-in">
+          <div className="mb-8">
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary mb-4 pulse-animation">
+              <Video className="w-10 h-10 text-primary-foreground" />
+            </div>
+            <h1 className="text-4xl font-bold mb-3 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              CallSpark
+            </h1>
+            <p className="text-muted-foreground text-lg">
+              Connect with strangers around the world through video chat
+            </p>
+          </div>
+
+          <Card className="p-8 mb-6 bg-card/50 backdrop-blur-sm border border-border/50">
+            <div className="flex items-center justify-center mb-4">
+              <Users className="w-8 h-8 text-primary mr-3" />
+              <span className="text-foreground font-medium">
+                Ready to connect
+              </span>
+            </div>
+            <p className="text-sm text-muted-foreground mb-6">
+              Click the button below to start a random video chat with someone
+              new
+            </p>
+
+            <Button
+              onClick={handleStartCall}
+              className="w-full h-14 text-lg font-semibold call-button-primary rounded-xl"
+              size="lg"
+            >
+              <Video className="w-6 h-6 mr-3" />
+              Start Video Call
+            </Button>
+          </Card>
+
+          <p className="text-xs text-muted-foreground">
+            By using CallSpark, you agree to be respectful and follow community
+            guidelines
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+    );
+  }
+
+  if (isConnecting) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+        <div className="text-center fade-in">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary mb-6 pulse-animation">
+            <Video className="w-10 h-10 text-primary-foreground" />
+          </div>
+          <h2 className="text-2xl font-bold mb-3">Connecting...</h2>
+          <p className="text-muted-foreground mb-6">
+            Finding someone to chat with
+          </p>
+          <div className="flex justify-center space-x-2">
+            <div className="w-2 h-2 bg-primary rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+            <div className="w-2 h-2 bg-primary rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+            <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-background p-4">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6 fade-in">
+        <div className="flex items-center">
+          <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-primary mr-3">
+            <Video className="w-5 h-5 text-primary-foreground" />
+          </div>
+          <h1 className="text-xl font-bold">CallSpark</h1>
+        </div>
+        <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+          <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+          <span>Connected</span>
+        </div>
+      </div>
+
+      {/* Video Layout */}
+      <div className="max-w-6xl mx-auto slide-up">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-6">
+          {/* Remote Video - Main Stream */}
+          <div className="lg:col-span-3">
+            <Card className="video-container aspect-video lg:aspect-[16/10] w-full">
+              <div className="video-placeholder w-full h-full flex flex-col items-center justify-center">
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-4">
+                    <Users className="w-8 h-8 text-muted-foreground" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">
+                    Stranger's Video
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Waiting for video stream...
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Local Video - Your Stream */}
+          <div className="lg:col-span-1">
+            <Card className="video-container aspect-video w-full">
+              <div className="video-placeholder w-full h-full flex flex-col items-center justify-center">
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 mb-3">
+                    <Video className="w-6 h-6 text-primary" />
+                  </div>
+                  <h4 className="text-sm font-medium mb-1">Your Camera</h4>
+                  <p className="text-xs text-muted-foreground">Video preview</p>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+
+        {/* Call Controls */}
+        <Card className="p-6 bg-card/80 backdrop-blur-sm border border-border/50">
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            {/* <Button
+              onClick={handleSkipCall}
+              variant="secondary"
+              size="lg"
+              className="h-12 px-6 rounded-xl transition-all duration-300 hover:scale-105"
+              disabled={isConnecting}
+            >
+              <SkipForward className="w-5 h-5 mr-2" />
+              Next
+            </Button> */}
+
+            <Button
+              onClick={handleSkipCall}
+              variant="secondary"
+              size="lg"
+              className="h-12 px-6 rounded-xl transition-all duration-300 hover:scale-105"
+              disabled={isConnecting}
+            >
+              <SkipForward className="w-5 h-5 mr-2" />
+              Skip
+            </Button>
+
+            <Button
+              onClick={handleEndCall}
+              variant="destructive"
+              size="lg"
+              className="h-12 px-8 rounded-xl transition-all duration-300 hover:scale-105"
+            >
+              <Phone className="w-5 h-5 mr-2 rotate-[135deg]" />
+              End Call
+            </Button>
+          </div>
+
+          <div className="flex items-center justify-center mt-4 pt-4 border-t border-border/50">
+            <p className="text-xs text-muted-foreground text-center">
+              Use "Next" or "Skip" to connect with a new person • "End Call" to
+              return to start
+            </p>
+          </div>
+        </Card>
+      </div>
     </div>
   );
 }
