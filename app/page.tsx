@@ -47,7 +47,7 @@ export default function Home() {
               <Video className="w-10 h-10 text-primary-foreground" />
             </div>
             <h1 className="text-4xl font-bold mb-3 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              CallSpark
+              ChatSpark
             </h1>
             <p className="text-muted-foreground text-lg">
               Connect with strangers around the world through video chat
@@ -77,7 +77,7 @@ export default function Home() {
           </Card>
 
           <p className="text-xs text-muted-foreground">
-            By using CallSpark, you agree to be respectful and follow community
+            By using ChatSpark, you agree to be respectful and follow community
             guidelines
           </p>
         </div>
@@ -114,7 +114,7 @@ export default function Home() {
           <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-primary mr-3">
             <Video className="w-5 h-5 text-primary-foreground" />
           </div>
-          <h1 className="text-xl font-bold">CallSpark</h1>
+          <h1 className="text-xl font-bold">ChatSpark</h1>
         </div>
         <div className="flex items-center space-x-2 text-sm text-muted-foreground">
           <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>

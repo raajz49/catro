@@ -7,21 +7,21 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "CallSpark - Random Video Chat",
+  title: "ChatSpark - Random Video Chat",
   description:
-    "Connect with strangers around the world through random video chat. Start meaningful conversations with CallSpark.",
-  authors: [{ name: "CallSpark" }],
+    "Connect with strangers around the world through random video chat. Start meaningful conversations with ChatSpark.",
+  authors: [{ name: "ChatSpark" }],
   openGraph: {
-    title: "CallSpark - Random Video Chat",
+    title: "ChatSpark - Random Video Chat",
     description:
-      "Connect with strangers around the world through random video chat. Start meaningful conversations with CallSpark.",
+      "Connect with strangers around the world through random video chat. Start meaningful conversations with ChatSpark.",
     type: "website",
     images: ["https://lovable.dev/opengraph-image-p98pqg.png"],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@callspark_app",
-    title: "CallSpark - Random Video Chat",
+    site: "@chatspark_app",
+    title: "ChatSpark - Random Video Chat",
     description:
       "Connect with strangers around the world through random video chat",
     images: ["https://lovable.dev/opengraph-image-p98pqg.png"],
