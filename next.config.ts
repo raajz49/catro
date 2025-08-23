@@ -1,7 +1,13 @@
-import type { NextConfig } from "next";
+import { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  assetPrefix:
+    process.env.NODE_ENV === "production"
+      ? "https://cdn.chatspark.rajkoirala.com.np/"
+      : "", // no prefix in dev
+  images: {
+    domains: ["cdn.chatspark.rajkoirala.com.np"],
+  },
 };
 
 export default nextConfig;

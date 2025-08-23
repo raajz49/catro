@@ -1,0 +1,13 @@
+User-agent: *
+# Block sensitive areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /temp/
+
+# Allow specific API endpoint for OG images
+Allow: /api/og/
+
+# Sitemap location
+Sitemap: https://chatspark.rajkoirala.com.np/sitemap.xml
