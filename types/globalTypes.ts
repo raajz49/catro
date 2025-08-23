@@ -1,0 +1,18 @@
+export const countries = [
+  { code: "global", name: "Global", flag: "🌍" },
+  { code: "us", name: "United States", flag: "🇺🇸" },
+  { code: "uk", name: "United Kingdom", flag: "🇬🇧" },
+  { code: "in", name: "India", flag: "🇮🇳" },
+  { code: "np", name: "Nepal", flag: "🇳🇵" },
+  { code: "th", name: "Thailand", flag: "🇹🇭" },
+  { code: "ph", name: "Philippines", flag: "🇵🇭" },
+  { code: "id", name: "Indonesia", flag: "🇮🇩" },
+  { code: "jp", name: "Japan", flag: "🇯🇵" },
+  { code: "kr", name: "South Korea", flag: "🇰🇷" },
+  { code: "de", name: "Germany", flag: "🇩🇪" },
+  { code: "fr", name: "France", flag: "🇫🇷" },
+  { code: "br", name: "Brazil", flag: "🇧🇷" },
+  { code: "mx", name: "Mexico", flag: "🇲🇽" },
+  { code: "ru", name: "Russia", flag: "🇷🇺" },
+  { code: "cn", name: "China", flag: "🇨🇳" },
+];

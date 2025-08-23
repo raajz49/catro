@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster as Sonner, Toaster } from "@/components/ui/sonner";
 import { Providers } from "./providers";
+import Footer from "@/components/footer/footer";
+import Navbar from "@/components/navbar/page";
+import { CountryProvider } from "@/context/CountryContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,11 +38,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={`${inter.className} bg-gray-900 text-white flex flex-col min-h-screen`}
+      >
+        {" "}
+        {/* Added flex-col and min-h-screen for sticky footer */}
         <Providers>
-          {children}
-          <Toaster />
-          <Sonner />
+          <CountryProvider>
+            <Navbar />
+            <main className="flex-grow">
+              {" "}
+              {/* Added flex-grow to main content */}
+              {children}
+            </main>
+            <Toaster />
+            <Sonner />
+            <Footer /> {/* Render the Footer component here */}
+          </CountryProvider>
         </Providers>
       </body>
     </html>
