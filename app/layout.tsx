@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   description:
     "Connect with strangers around the world through random video chat. Start meaningful conversations with ChatSpark.",
   authors: [{ name: "ChatSpark" }],
-  keywords: ["random video chat", "chat with strangers", "online video chat"], // <-- Add relevant keywords
-  robots: "index, follow", // <-- Ensures pages are indexed
+  keywords: ["random video chat", "chat with strangers", "online video chat"],
+  robots: "index, follow",
   openGraph: {
     title: "ChatSpark - Random Video Chat",
     description:
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     images: ["https://shapes.inc/api/public/avatar/johnnysins-rvhd"],
   },
   alternates: {
-    canonical: "https://chatspark.rajkoirala.com.np", // canonical URL
+    canonical: "https://chatspark.rajkoirala.com.np",
   },
 };
 
@@ -46,23 +46,31 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-gray-900 text-white flex flex-col min-h-screen`}
+        className={`${inter.className} bg-gradient-to-br from-gray-950 via-black to-gray-900 text-white flex flex-col min-h-screen`}
       >
-        {" "}
-        {/* Added flex-col and min-h-screen for sticky footer */}
+        {/* Providers wrap */}
         <Providers>
           <CountryProvider>
-            <Navbar />
-            <main className="flex-grow">
-              {" "}
-              {/* Added flex-grow to main content */}
-              {children}
-            </main>
+            {/* Navbar with glassy style */}
+            <div className="sticky top-0 z-50 bg-gray-800/40 backdrop-blur-md border-b border-gray-700 shadow-md">
+              <Navbar />
+            </div>
+
+            {/* Main content area */}
+            <main className="flex-grow relative z-10">{children}</main>
+
+            {/* Notifications */}
             <Toaster />
             <Sonner />
-            <Footer /> {/* Render the Footer component here */}
+
+            {/* Footer with matching glass style */}
+            <div className="bg-gray-800/40 backdrop-blur-md border-t border-gray-700 shadow-inner">
+              <Footer />
+            </div>
           </CountryProvider>
         </Providers>
+
+        {/* Structured data for SEO */}
         <Script
           id="structured-data"
           type="application/ld+json"
