@@ -7,6 +7,8 @@ import Footer from "@/components/footer/footer";
 import Navbar from "@/components/navbar/page";
 import { CountryProvider } from "@/context/CountryContext";
 import Script from "next/script";
+import BannerAd from "@/components/banner/adBanner";
+import { MOCK_BANNERS } from "@/constant/adConstant";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -43,6 +45,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const randomBanner =
+    MOCK_BANNERS[Math.floor(Math.random() * MOCK_BANNERS.length)];
   return (
     <html lang="en">
       <body
@@ -62,7 +66,13 @@ export default function RootLayout({
             {/* Notifications */}
             <Toaster />
             <Sonner />
-
+            <BannerAd
+              id="chat-bottom-banner"
+              provider="image"
+              size="leaderboard"
+              imageSrc={randomBanner.imageSrc}
+              href={randomBanner.href}
+            />
             {/* Footer with matching glass style */}
             <div className="bg-gray-800/40 backdrop-blur-md border-t border-gray-700 shadow-inner">
               <Footer />

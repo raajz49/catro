@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Twitter, Instagram, Youtube, Languages } from "lucide-react"; // Social media icons and language icon
+import { Facebook, Twitter, Instagram, Youtube } from "lucide-react"; // Social media icons and language icon
 
 interface FooterProps {}
 
